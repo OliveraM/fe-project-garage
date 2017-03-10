@@ -9,3 +9,14 @@
 	}]);
 
 })(window.angular.module('mainModule'));
+
+
+/*
+https://developers.google.com/maps/documentation/javascript/adding-a-google-map
+https://jsfiddle.net/Xeoncross/k5c2ndyL/
+
+
+new Date().getTime() => 1489163860875
+
+new Date(1489163860875)
+*/
