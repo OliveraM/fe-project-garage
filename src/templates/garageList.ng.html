@@ -1,0 +1,30 @@
+	
+	<!-- <div ng-if="listCtrl.garages.length == 0">
+		<p class="center-text">There are not garages in the list.</p>
+	</div> -->
+	<!-- <div ng-if="listCtrl.garages.length > 0"></div> -->
+
+		<p>{{listCtrl}}</p>
+
+		<table class="table col-sm-12">
+			<thead>
+				<tr>
+					<th>Garage name</th>
+					<th>Availability</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-if="listCtrl.garages.length == 0" class="center-text">
+					<td class="text-center" colspan="2">
+						<span>There are not garages in the list.</span>
+					</td>
+				</tr>
+				<tr ng-if="listCtrl.garages.length > 0" ng-repeat="garage in listCtrl.garages">
+					<td>
+						<a href="">{{garage.name}}</a>
+					</td>
+				</tr>
+				<tr></tr>	
+			</tbody>
+		</table>
+		

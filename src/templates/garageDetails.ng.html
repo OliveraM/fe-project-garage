@@ -1,0 +1,18 @@
+<div ng-if="detailsCtrl.chosenGarage != null">
+	
+	<div>
+		<table>
+			<tr>
+				<td>Available spots</td>
+				<td><span>{{detailsCtrl.chosenGarage.availableSpots}}</span></td>
+			</tr>
+			<tr>
+				<td>Total spots</td>
+				<td><span>{{detailsCtrl.chosenGarage.totalSpots}}</span></td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="googleMapPosition"></div>
+
+</div>
