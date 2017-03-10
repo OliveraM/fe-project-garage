@@ -1,0 +1,24 @@
+angular-route dependency used - for routing templates
+
+1) add anglar-route as dependency - via bower:  bower install angular-route --save (without dev because it is imported in index.html i)
+2) add 'ngRoute' as dependency in main module (app.module.js)
+3) create config in app.routes.js:
+			
+			(function(module){    
+		        module.config(function ($routeProvider) {
+
+		            // Set routing for default and drivers views
+		            $routeProvider
+		                .when('/', {
+		                    templateUrl: 'templates/garageList.ng.html',
+		                    controller: 'GarageListCtrl',
+		                    controllerAs: 'listCtrl'
+		                })
+		                .otherwise({redirectTo: '/'});
+		       		}
+		 	   );
+
+			})(window.angular.module('mainModule'));
+4) import angular-route.js (first after angular.js), app.module.js, app.routes.js
+5) add to content div 'data-ng-view' attribute so the ngRoute will know where to but template
+6) calling routes with #!/route

@@ -1,18 +1,17 @@
-<div ng-if="detailsCtrl.chosenGarage != null">
-	
-	<div>
-		<table>
-			<tr>
-				<td>Available spots</td>
-				<td><span>{{detailsCtrl.chosenGarage.availableSpots}}</span></td>
-			</tr>
-			<tr>
-				<td>Total spots</td>
-				<td><span>{{detailsCtrl.chosenGarage.totalSpots}}</span></td>
-			</tr>
-		</table>
-	</div>
+<div ng-if="detailsCtrl.chosenGarage != null" class="col-sm-12">
+	<table class="table">
+		<tr>
+			<td>Available spots</td>
+			<td><span>{{detailsCtrl.chosenGarage.available_spots}}</span></td>
+		</tr>
+		<tr>
+			<td>Total spots</td>
+			<td><span>{{detailsCtrl.chosenGarage.total_spots}}</span></td>
+		</tr>
+	</table>
 
-	<div id="googleMapPosition"></div>
-
-</div>
+	<div garageMapPosition></div>
+</div> 
+<div ng-if="detailsCtrl.chosenGarage == null" class="col-sm-12">
+	<p>There is no garage.</p>
+</div>	

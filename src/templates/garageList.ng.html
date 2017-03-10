@@ -1,10 +1,4 @@
-	
-	<!-- <div ng-if="listCtrl.garages.length == 0">
-		<p class="center-text">There are not garages in the list.</p>
-	</div> -->
-	<!-- <div ng-if="listCtrl.garages.length > 0"></div> -->
-
-		<p>{{listCtrl}}</p>
+		<h1>Garages in AMS</h1>
 
 		<table class="table col-sm-12">
 			<thead>
@@ -21,7 +15,11 @@
 				</tr>
 				<tr ng-if="listCtrl.garages.length > 0" ng-repeat="garage in listCtrl.garages">
 					<td>
-						<a href="">{{garage.name}}</a>
+						<a href="#!/garage/{{garage.id}}">{{garage.name}}</a>
+					</td>
+					<td>
+						<span ng-if="garage.available_spots > 0">available ({{garage.available_spots}})</span>
+						<span ng-if="garage.available_spots == 0">unavailable ({{garage.available_spots}})</span>
 					</td>
 				</tr>
 				<tr></tr>	

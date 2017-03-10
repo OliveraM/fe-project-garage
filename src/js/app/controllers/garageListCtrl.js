@@ -1,15 +1,13 @@
 (function(module){
 
-	module.controller('GarageListCtrl', ['$scope', 'garageService', function($scope, garageService){
-		debugger;
+	module.controller('GarageListCtrl', ['$scope', 'garageService', 'cacheService', function($scope, garageService, cacheService){
+
 		var ctrl = this;
 
-		ctrl.garages = []; // get from cache - if there is no cached data/ or if it's older thern 5mins - $http.get
+	//	ctrl.garages = []; // get from cache - if there is no cached data/ or if it's older thern 5mins - $http.get
 
-		garageService.getGarageList().then(function(data){
-				ctrl.garages = data;
-		});
-
+		ctrl.garages = garageService.getGarageList();
+			
 	}]);
 
 })(window.angular.module('mainModule'));
