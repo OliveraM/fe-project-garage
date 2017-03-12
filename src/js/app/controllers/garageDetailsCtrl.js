@@ -1,6 +1,6 @@
 (function(module){
 
-	module.controller('GarageDetailsCtrl', ['$scope', 'garageService', '$routeParams', 'garageMapPosition', function($scope, garageService, $routeParams, garageMapPosition){
+	module.controller('GarageDetailsCtrl', ['$scope', 'garageService', '$routeParams', function($scope, garageService, $routeParams){
 
 		var ctrl = this;
 
