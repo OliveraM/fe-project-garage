@@ -1,10 +1,16 @@
-		<h1>Garages in AMS</h1>
+	<div class="col-sm-6 col-sm-offset-3"> 		
 
-		<table class="table col-sm-12">
-			<thead>
+		<h1 class="text-center">Garages in AMS</h1>
+
+		<div >
+			<input type="text" data-ng-model="search" class="form-control maring-bottom-20" placeholder="Search garage by name"/>
+		</div>
+
+		<table class="table table-bordered table-striped table-hover col-sm-12">
+			<thead class="thead-default">
 				<tr>
-					<th>Garage name</th>
-					<th>Availability</th>
+					<th class="col-sm-6">Garage name</th>
+					<th class="col-sm-6">Availability</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -13,16 +19,18 @@
 						<span>There are not garages in the list.</span>
 					</td>
 				</tr>
-				<tr ng-if="listCtrl.garages.length > 0" ng-repeat="garage in listCtrl.garages">
+				<tr ng-if="listCtrl.garages.length > 0" ng-repeat="garage in listCtrl.garages | filter:search">
 					<td>
 						<a href="#!/garage/{{garage.id}}">{{garage.name}}</a>
 					</td>
 					<td>
-						<span ng-if="garage.available_spots > 0">available ({{garage.available_spots}})</span>
-						<span ng-if="garage.available_spots == 0">unavailable ({{garage.available_spots}})</span>
+						<button ng-if="garage.available_spots > 0" class="btn btn-success btn-circle"></button>
+						<button ng-if="garage.available_spots == 0" class="btn btn-danger btn-circle"></button>
 					</td>
 				</tr>
 				<tr></tr>	
 			</tbody>
 		</table>
-		
+
+	</div>
+	

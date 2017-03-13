@@ -15,7 +15,8 @@
 		}
 
 		service.getGarageList  = function(){
-			if(cacheService.garagesInSessionStorage()){
+			debugger;
+			if(cacheService.garagesInSessionStorage() && !cacheService.sessionIsOld()){
 				return JSON.parse(sessionStorage.getItem('garages'));
 			}else{
 				var garages = [];
@@ -34,7 +35,6 @@
 					});
 					cacheService.setToSessionStorage('garages', JSON.stringify(garages));
 					cacheService.setToSessionStorage('timestamp', new Date().getTime());
-					debugger;
 				});
 				return garages;
 			}

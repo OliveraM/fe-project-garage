@@ -18,14 +18,14 @@
 	        });*/
 	    var map, infoWindow;
         var markers = [];
-debugger;
+
         var lat = scope.$parent.detailsCtrl.chosenGarage.geometry.coordinates[1];
         var lng = scope.$parent.detailsCtrl.chosenGarage.geometry.coordinates[0];
 
         // map config
         var mapOptions = {
             center: new google.maps.LatLng(lat, lng),
-            zoom: 20,
+            zoom: 17,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             scrollwheel: false
         };
@@ -50,24 +50,12 @@ debugger;
             marker = new google.maps.Marker(markerOptions);
             markers.push(marker); // add marker to array
             
-/*            google.maps.event.addListener(marker, 'click', function () {
-                // close window if not undefined
-                if (infoWindow !== void 0) {
-                    infoWindow.close();
-                }
-                // create new window
-                var infoWindowOptions = {
-                    content: content
-                };
-                infoWindow = new google.maps.InfoWindow(infoWindowOptions);
-                infoWindow.open(map, marker);
-            });*/
         }
         
         // show the map and place some markers
         initMap();
         
-        setMarker(map, new google.maps.LatLng(scope.$parent.detailsCtrl.chosenGarage.geometry.coordinates[1], scope.$parent.detailsCtrl.chosenGarage.geometry.coordinates[0]), scope.$parent.detailsCtrl.chosenGarage.name, scope.$parent.detailsCtrl.chosenGarage.available_spots);
+        setMarker(map, new google.maps.LatLng(lat, lng), scope.$parent.detailsCtrl.chosenGarage.name, scope.$parent.detailsCtrl.chosenGarage.available_spots);
         }
 
 		return{
