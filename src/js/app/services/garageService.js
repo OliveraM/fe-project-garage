@@ -4,25 +4,15 @@
 		var service = this;
 
 		service.getGarageListAjax = function(){
-			return $http.get("http://api.citysdk.waag.org/layers/parking.garage/objects?per_page=25")
-			.then(
-				function successCallback(response){
-				return response.data;
-			}, function errorCallback(response){
-				console.log(response.data);
-				return;
-			});
+			return $http.get("http://api.citysdk.waag.org/layers/parking.garage/objects?per_page=25");
 		}
 
 		service.getGarageList  = function(){
-			debugger;
-			if(cacheService.garagesInSessionStorage() && !cacheService.sessionIsOld()){
-				return JSON.parse(sessionStorage.getItem('garages'));
-			}else{
 				var garages = [];
-				service.getGarageListAjax().then(function(data){
-					angular.forEach(data.features, function(val, key){
-							
+				return service.getGarageListAjax().then(function(data){
+					
+					angular.forEach(data.data.features, function(val, key){
+						
 						var garageObj = {
 							id: val.properties.cdk_id,
 							name: val.properties.title,
@@ -35,16 +25,14 @@
 					});
 					cacheService.setToSessionStorage('garages', JSON.stringify(garages));
 					cacheService.setToSessionStorage('timestamp', new Date().getTime());
+
+					return garages;
 				});
-				return garages;
-			}
 		}
 
-		service.getGarageById = function(garage_id){
-			var garages = service.getGarageList();
+		service.getGarageById = function(garages, garage_id){			
+				return $filter('filter')(garages, {id: garage_id})[0];
 
-			return $filter('filter')(garages, {id: garage_id});
 		}	
-
 	}]);
 })(window.angular.module('mainModule'));

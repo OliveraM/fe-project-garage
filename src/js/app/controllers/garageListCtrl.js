@@ -4,9 +4,15 @@
 
 		var ctrl = this;
 
-	//	ctrl.garages = []; // get from cache - if there is no cached data/ or if it's older thern 5mins - $http.get
+		if(cacheService.garagesInSessionStorage() && !cacheService.sessionIsOld()){
+			ctrl.garages = cacheService.getGaragesFromSession();
+		}else{
+			garageService.getGarageList().then(function(garages){
+				ctrl.garages = garages;
+			});
+		}	
 
-		ctrl.garages = garageService.getGarageList();
+		
 			
 	}]);
 

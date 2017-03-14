@@ -8,7 +8,7 @@
 		};
 
 		service.sessionIsOld = function(){
-			debugger;
+			
 			var timestamp = sessionStorage.getItem('timestamp');
 			var now = new Date().getTime();
 			var difference = now - timestamp;
@@ -19,5 +19,9 @@
 		service.setToSessionStorage = function(key, value){
 			sessionStorage.setItem(key, value);
 		};
+
+		service.getGaragesFromSession = function(){
+			return JSON.parse(sessionStorage.getItem('garages'));
+		}
 	});
 })(window.angular.module('mainModule'));

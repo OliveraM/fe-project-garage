@@ -3,19 +3,7 @@
 	module.directive('garageMapPosition', function(){
 
 		var link = function(scope, element, attrs){
-		 /*	debugger;
-			var uluru = {
-				lat: scope.$parent.detailsCtrl.chosenGarage.geometry.coordinates[0],
-				lng: scope.$parent.detailsCtrl.chosenGarage.geometry.coordinates[1]
-			};
-			var map = new google.maps.Map(element.attr('id'), {
-          		zoom: 4,
-          		center: uluru
-        	});
-	        var marker = new google.maps.Marker({
-	          position: uluru,
-	          map: map
-	        });*/
+
 	    var map, infoWindow;
         var markers = [];
 
@@ -60,21 +48,10 @@
 
 		return{
 			restrict: 'A',
-			template: '<div id="googleMap"></div>',
+			template: '<div id="googleMap" class="center-block"></div>',
 			replace: true,
 			link: link
 		}
 	});
 
 })(window.angular.module('mainModule'));
-
-
-/*
-https://developers.google.com/maps/documentation/javascript/adding-a-google-map
-https://jsfiddle.net/Xeoncross/k5c2ndyL/
-
-
-new Date().getTime() => 1489163860875
-
-new Date(1489163860875)
-*/
