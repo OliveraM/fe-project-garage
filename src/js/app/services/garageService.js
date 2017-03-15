@@ -1,5 +1,7 @@
-(function(module){
-	module.service('garageService', ['$http', 'cacheService', '$filter', function($http, cacheService, $filter){
+define(['angular', 'cacheService'], function(angular){
+	var module = angular.module('garageServiceModule', ['cacheServiceModule']);
+
+	module.service('garageService', ['$http', '$filter', 'cacheService', function($http, $filter, cacheService){
 
 		var service = this;
 
@@ -35,4 +37,4 @@
 
 		}	
 	}]);
-})(window.angular.module('mainModule'));
+});

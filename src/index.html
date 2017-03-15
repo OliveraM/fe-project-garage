@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"  data-ng-app="mainModule">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Garages</title>
@@ -7,21 +7,10 @@
 	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
-	<main class="container" data-ng-view>
+	
+	<main class="container" data-ng-view></main>
 
-	</main>
-
-	<script src="../bower_components/angular/angular.js"></script>
-	<script src="../bower_components/angular-route/angular-route.js"></script>
-	<script src="js/app/app.module.js"></script>
-	<script src="js/app/app.routes.js"></script>
-	<script src="js/app/services/garageService.js"></script>
-	<script src="js/app/services/cacheService.js"></script>
-	<script src="js/app/controllers/garageListCtrl.js"></script>
-	<script src="js/app/controllers/garageDetailsCtrl.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNgGFv1c2OJZseACnktUNwwu-TDcCVXSE"></script> 
-	<script src="js/app/directives/garageMapPosition.js"></script>
-
-
+	<script src="../bower_components/requirejs/require.js" data-main="js/main.js"></script>
+ 
 </body>
 </html>

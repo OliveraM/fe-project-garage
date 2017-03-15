@@ -1,4 +1,8 @@
-(function(module){
+
+define(['angular'], function(angular){
+
+	var module = angular.module('cacheServiceModule', []);	
+
 	module.service('cacheService', function(){
 
 		var service = this;
@@ -24,4 +28,4 @@
 			return JSON.parse(sessionStorage.getItem('garages'));
 		}
 	});
-})(window.angular.module('mainModule'));
+});

@@ -1,4 +1,6 @@
-(function(module){
+define(['angular', 'gooleApiPath'], function(angular){
+
+    var module = angular.module('garageMapModule', []);
 
 	module.directive('garageMapPosition', function(){
 
@@ -54,4 +56,4 @@
 		}
 	});
 
-})(window.angular.module('mainModule'));
+});

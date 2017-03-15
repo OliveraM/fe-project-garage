@@ -1,4 +1,6 @@
-(function(module){
+
+define(['angular', 'garageService', 'cacheService'], function(angular){
+	var module = angular.module('garageListModule', ['garageServiceModule', 'cacheServiceModule']);
 
 	module.controller('GarageListCtrl', ['$scope', 'garageService', 'cacheService', function($scope, garageService, cacheService){
 
@@ -6,14 +8,11 @@
 
 		if(cacheService.garagesInSessionStorage() && !cacheService.sessionIsOld()){
 			ctrl.garages = cacheService.getGaragesFromSession();
-		}else{
+		}else{ 
 			garageService.getGarageList().then(function(garages){
 				ctrl.garages = garages;
 			});
-		}	
-
-		
-			
+		}			
 	}]);
 
-})(window.angular.module('mainModule'));
+});
